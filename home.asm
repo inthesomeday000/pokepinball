@@ -2196,19 +2196,19 @@ MultiplyBbyCSigned:
 	xor c
 	ldh [hSignedMathSignBuffer], a
 	bit 7, b
-	jr z, .asm_20be
+	jr z, .abs_val_check_c
 	ld a, b
 	cpl
 	inc a
 	ld b, a
-.asm_20be
+.abs_val_check_c
 	bit 7, c
-	jr z, .asm_20c6
+	jr z, .multiplication_core
 	ld a, c
 	cpl
 	inc a
 	ld c, a
-.asm_20c6
+.multiplication_core
 	; b*c == (b**2 + c**2 - (b - c)**2) / 2
 	push de
 	push hl
